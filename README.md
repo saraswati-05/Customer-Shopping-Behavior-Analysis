@@ -1,101 +1,435 @@
 # 🛍️ Customer Shopping Behavior Analysis
 
-<p align="center">
-  <img src="images/banner.png" alt="Customer Shopping Behavior Analysis Banner" width="100%">
-</p>
+## 📖 Overview
 
-## 📌 Project Overview
+Customer behavior analysis is essential for businesses to understand purchasing patterns, improve customer retention, optimize marketing strategies, and increase revenue.
 
-Understanding customer behavior is critical for improving sales, customer retention, and marketing effectiveness. This project analyzes **3,900 customer purchase transactions** to uncover spending patterns, product preferences, subscription behavior, and customer segments.
+This project analyzes **3,900 customer purchase transactions** to uncover insights into customer demographics, spending behavior, subscription patterns, product performance, and discount effectiveness.
 
-Using **Python for data cleaning and exploratory analysis**, **MySQL for business-focused SQL analysis**, and **Power BI for interactive visualization**, this project transforms raw shopping data into actionable business insights.
+The project follows a complete data analytics workflow:
 
-### 🎯 Business Objectives
+* Data Cleaning & Preparation using Python
+* Business Analysis using MySQL
+* Data Visualization using Power BI
+* Actionable Business Recommendations
 
-* Identify high-value customer segments
-* Analyze revenue contribution across demographics
-* Evaluate subscription program performance
-* Discover top-performing and discount-dependent products
-* Understand the impact of shipping methods on spending behavior
-* Provide strategic recommendations for customer retention and revenue growth
-
-### 🛠️ Technologies Used
-
-| Tool             | Purpose                         |
-| ---------------- | ------------------------------- |
-| Python           | Data Cleaning & EDA             |
-| Pandas           | Data Manipulation               |
-| NumPy            | Numerical Operations            |
-| MySQL            | Business Analysis & SQL Queries |
-| Power BI         | Dashboard & Visualization       |
-| Jupyter Notebook | Development Environment         |
+The objective is to transform raw transactional data into meaningful business insights that support strategic decision-making.
 
 ---
 
-## 📊 Project Architecture
+## 🎯 Business Problem
 
-Customer Shopping Dataset
-↓
-Python (Data Cleaning & Feature Engineering)
-↓
-MySQL Database
-↓
-SQL Business Analysis
-↓
-Power BI Dashboard
-↓
-Business Insights & Recommendations
+Retail businesses collect large amounts of transactional data but often struggle to convert that data into actionable insights.
 
----
+Key business questions addressed in this project include:
 
-## ✨ Key Highlights
-
-✔ Cleaned and transformed 3,900 customer transactions
-
-✔ Handled missing values using category-wise median imputation
-
-✔ Performed 10+ business-driven SQL analyses
-
-✔ Built customer segments (New, Returning, Loyal)
-
-✔ Designed an interactive Power BI dashboard
-
-✔ Generated actionable business recommendations
+* Which customer segments generate the most revenue?
+* Do subscribers spend more than non-subscribers?
+* Which products receive the highest ratings?
+* Which products rely heavily on discounts?
+* Does shipping method influence purchase behavior?
+* What customer groups should be targeted for marketing campaigns?
 
 ---
 
-## 📈 Dashboard Preview
+## 📂 Dataset Information
 
-Add your dashboard screenshots below:
+### Dataset Size
 
-### Executive Dashboard
+| Metric                  | Value  |
+| ----------------------- | ------ |
+| Total Records           | 3,900  |
+| Total Features          | 18     |
+| Average Purchase Amount | $59.76 |
+| Average Review Rating   | 3.75   |
 
-![Dashboard Overview](images/dashboard_overview.png)
+### Features Included
 
-### Revenue & Customer Analysis
+#### Customer Information
 
-![Revenue Analysis](images/revenue_analysis.png)
+* Customer ID
+* Age
+* Gender
+* Location
+* Subscription Status
 
-### Product & Subscription Insights
+#### Purchase Information
 
-![Product Insights](images/product_insights.png)
+* Item Purchased
+* Category
+* Purchase Amount
+* Season
+* Size
+* Color
+
+#### Shopping Behavior
+
+* Previous Purchases
+* Frequency of Purchases
+* Discount Applied
+* Promo Code Used
+* Review Rating
+* Shipping Type
 
 ---
 
-## 🔍 Key Insights
+# 🛠️ Technology Stack
 
-* Male customers generated over 2× the revenue of female customers.
-* Young adults contributed the highest revenue among all age groups.
-* Express shipping customers spent more on average than standard shipping customers.
-* 839 customers used discounts while still spending above the overall average purchase amount.
-* Only 27% of customers were subscribers, indicating an opportunity for subscription growth.
+| Technology       | Purpose                 |
+| ---------------- | ----------------------- |
+| Python           | Data Cleaning & EDA     |
+| Pandas           | Data Manipulation       |
+| NumPy            | Numerical Operations    |
+| MySQL            | SQL Analysis            |
+| Power BI         | Dashboard Creation      |
+| Jupyter Notebook | Development Environment |
+| GitHub           | Project Hosting         |
 
 ---
 
-## 💡 Business Recommendations
+# 🔄 Project Workflow
 
-1. Increase subscription adoption through exclusive offers.
-2. Strengthen loyalty programs for repeat customers.
-3. Optimize discount strategies to protect profit margins.
-4. Promote top-rated products in marketing campaigns.
-5. Target high-revenue customer segments with personalized campaigns.
+## Step 1: Data Cleaning and Preparation (Python)
+
+### Tasks Performed
+
+### Data Loading
+
+* Imported dataset using Pandas.
+* Examined dataset structure and data types.
+
+### Exploratory Data Analysis
+
+* Checked dataset dimensions.
+* Generated descriptive statistics.
+* Identified missing values.
+
+### Missing Value Treatment
+
+* Found 37 missing values in the Review Rating column.
+* Imputed missing ratings using the median rating of each product category.
+
+### Data Standardization
+
+* Renamed columns using snake_case convention.
+* Improved readability and consistency.
+
+### Feature Engineering
+
+Created:
+
+#### age_group
+
+Customers grouped into:
+
+* Young Adult
+* Adult
+* Middle-Aged
+* Senior
+
+#### purchase_frequency_days
+
+Derived from purchase frequency information.
+
+### Data Validation
+
+* Compared discount_applied and promo_code_used.
+* Found promo_code_used redundant.
+* Removed unnecessary column.
+
+---
+
+## Step 2: MySQL Business Analysis
+
+After cleaning, data was loaded into MySQL for business-focused SQL analysis.
+
+### Analysis Performed
+
+### 1. Revenue by Gender
+
+Purpose:
+
+* Compare revenue generated by male and female customers.
+
+### 2. High-Spending Discount Users
+
+Purpose:
+
+* Identify customers who used discounts but spent above average.
+
+### 3. Top Rated Products
+
+Purpose:
+
+* Determine products with highest customer satisfaction.
+
+### 4. Shipping Type Comparison
+
+Purpose:
+
+* Compare spending patterns across shipping methods.
+
+### 5. Subscribers vs Non-Subscribers
+
+Purpose:
+
+* Evaluate subscription program performance.
+
+### 6. Discount-Dependent Products
+
+Purpose:
+
+* Identify products heavily reliant on discounts.
+
+### 7. Customer Segmentation
+
+Purpose:
+
+* Categorize customers as:
+
+  * New
+  * Returning
+  * Loyal
+
+### 8. Top Products per Category
+
+Purpose:
+
+* Identify best-selling products within each category.
+
+### 9. Repeat Buyers & Subscription Analysis
+
+Purpose:
+
+* Understand whether repeat customers are more likely to subscribe.
+
+### 10. Revenue by Age Group
+
+Purpose:
+
+* Measure revenue contribution by customer age segment.
+
+---
+
+# 📊 Key Findings
+
+## Revenue Analysis
+
+### Revenue by Gender
+
+| Gender | Revenue |
+| ------ | ------- |
+| Male   | $158K   |
+| Female | $75K    |
+
+### Insight
+
+Male customers generated more than twice the revenue of female customers.
+
+---
+
+## Revenue by Age Group
+
+| Age Group   | Revenue |
+| ----------- | ------- |
+| Young Adult | $62.1K  |
+| Middle-Aged | $59.2K  |
+| Adult       | $56K    |
+| Senior      | $55.8K  |
+
+### Insight
+
+Young adults contributed the highest overall revenue.
+
+---
+
+## Subscription Analysis
+
+### Subscriber Distribution
+
+* Subscribers: 27%
+* Non-Subscribers: 73%
+
+### Revenue Comparison
+
+| Group           | Revenue  |
+| --------------- | -------- |
+| Subscribers     | $62,645  |
+| Non-Subscribers | $170,436 |
+
+### Insight
+
+Most customers are non-subscribers, indicating an opportunity to expand subscription adoption.
+
+---
+
+## Top Rated Products
+
+| Product | Average Rating |
+| ------- | -------------- |
+| Gloves  | 3.86           |
+| Sandals | 3.84           |
+| Boots   | 3.82           |
+| Hat     | 3.80           |
+| Skirt   | 3.78           |
+
+---
+
+## Discount Dependent Products
+
+| Product  | Discount Rate |
+| -------- | ------------- |
+| Hat      | 50.00%        |
+| Sneakers | 49.66%        |
+| Coat     | 49.07%        |
+| Sweater  | 48.17%        |
+| Pants    | 47.37%        |
+
+### Insight
+
+These products may rely heavily on promotions to drive sales.
+
+---
+
+## Shipping Analysis
+
+| Shipping Type | Avg Purchase |
+| ------------- | ------------ |
+| Standard      | $58.5        |
+| Express       | $60.5        |
+
+### Insight
+
+Customers selecting express shipping spend more per purchase.
+
+---
+
+## High-Spending Discount Users
+
+### Finding
+
+839 customers used discounts while still spending above the overall average purchase amount.
+
+### Insight
+
+Discount users are not always low-value customers and may represent an important customer segment.
+
+---
+
+# 📈 Power BI Dashboard
+
+An interactive Power BI dashboard was developed to visualize:
+
+* Revenue Trends
+* Customer Segmentation
+* Product Performance
+* Subscription Analysis
+* Shipping Insights
+* Discount Usage
+
+### Dashboard Features
+
+✔ KPI Cards
+
+✔ Interactive Filters
+
+✔ Revenue Analysis
+
+✔ Category Analysis
+
+✔ Customer Segmentation
+
+✔ Subscription Insights
+
+✔ Product Performance Tracking
+
+---
+
+# 💡 Business Recommendations
+
+## 1. Increase Subscription Adoption
+
+Offer exclusive rewards and benefits to encourage customer subscriptions.
+
+## 2. Strengthen Loyalty Programs
+
+Reward repeat customers to increase long-term retention.
+
+## 3. Optimize Discount Strategies
+
+Reduce unnecessary discounts while maintaining sales performance.
+
+## 4. Promote High-Rated Products
+
+Use top-rated products in marketing campaigns to increase conversion rates.
+
+## 5. Target High-Value Customer Segments
+
+Focus marketing efforts on:
+
+* Young Adults
+* Express Shipping Customers
+* High-Spending Discount Users
+
+---
+
+# 📁 Repository Structure
+
+Customer-Shopping-Behavior-Analysis/
+
+├── data/
+
+│ └── customer_shopping_data.csv
+
+├── notebooks/
+
+│ └── Customer_Shopping_Analysis.ipynb
+
+├── sql/
+
+│ └── Business_Queries.sql
+
+├── dashboard/
+
+│ └── Customer_Shopping_Dashboard.pbix
+
+├── reports/
+
+│ ├── Report.pdf
+
+│ └── Presentation.pdf
+
+├── images/
+
+│ ├── dashboard_overview.png
+
+│ ├── revenue_analysis.png
+
+│ └── customer_segmentation.png
+
+└── README.md
+
+---
+
+# 🚀 Skills Demonstrated
+
+* Data Cleaning
+* Exploratory Data Analysis (EDA)
+* Feature Engineering
+* SQL Query Writing
+* MySQL Database Management
+* Data Visualization
+* Dashboard Development
+* Business Analytics
+* Data Storytelling
+
+---
+
+# 👩‍💻 Author
+
+**Saraswati Sonale**
+
+Aspiring Data Analyst
+
+Skills:
+Python | SQL | MySQL | Power BI | Excel | Data Visualization | Data Analytics
